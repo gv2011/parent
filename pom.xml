@@ -10,12 +10,14 @@
 	<description>A Maven parent pom with default configurations useful for various projects.</description>
 	<url>https://github.com/gv2011/parent</url>
 
+
 	<licenses>
 		<license>
 			<name>MIT License</name>
 			<url>https://opensource.org/licenses/MIT</url>
 		</license>
 	</licenses>
+
 
 	<developers>
 		<developer>
@@ -25,12 +27,14 @@
 		</developer>
 	</developers>
 
+
 	<scm>
 		<connection>scm:git:git://github.com/gv2011/parent.git</connection>
 		<developerConnection>scm:git:git@github.com:gv2011/parent.git</developerConnection>
 		<url>https://github.com/gv2011/parent</url>
 		<tag>HEAD</tag>
 	</scm>
+
 
 	<distributionManagement>
 		<snapshotRepository>
@@ -43,10 +47,14 @@
 		</repository>
 	</distributionManagement>
 
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<bouncycastle.version>1.56</bouncycastle.version>
+		<slf4j.version>1.7.25</slf4j.version>
 	</properties>
+
 
 	<dependencies>
 
@@ -61,34 +69,28 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.12</version>
-		</dependency>
-
-		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-library</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
+			<version>${slf4j.version}</version>
 		</dependency>
 
 	</dependencies>
+
 
 	<dependencyManagement>
 		<dependencies>
 
 			<!-- Utilities -->
-			<dependency>
-				<groupId>com.github.gv2011</groupId>
-				<artifactId>util</artifactId>
-				<version>0.0.3-SNAPSHOT</version>
-			</dependency>
+      <dependency>
+        <groupId>com.github.gv2011</groupId>
+        <artifactId>util</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.github.gv2011</groupId>
+        <artifactId>gcol</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+        <scope>runtime</scope>
+      </dependency>
 
 			<dependency>
 				<groupId>com.github.gv2011</groupId>
@@ -111,6 +113,13 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
 				<version>2.8.0</version>
@@ -125,26 +134,26 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jul-to-slf4j</artifactId>
-				<version>1.7.22</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>1.1.9</version>
+				<version>1.2.2</version>
 				<scope>runtime</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-servlet</artifactId>
-				<version>9.4.0.v20161208</version>
+				<version>9.4.3.v20170317</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
-				<version>4.5.2</version>
+				<version>4.5.3</version>
 			</dependency>
 
 			<dependency>
@@ -162,7 +171,7 @@
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
-				<version>1.4.193</version>
+				<version>1.4.194</version>
 			</dependency>
 
 
@@ -194,7 +203,7 @@
 			<dependency>
 				<groupId>com.googlecode.ez-vcard</groupId>
 				<artifactId>ez-vcard</artifactId>
-				<version>0.10.1</version>
+				<version>0.10.2</version>
 			</dependency>
 
 			<dependency>
@@ -206,7 +215,23 @@
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
-				<version>3.0.1</version>
+				<version>3.1.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcpg-jdk15on</artifactId>
+				<version>${bouncycastle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcpkix-jdk15on</artifactId>
+				<version>${bouncycastle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcmail-jdk15on</artifactId>
+				<version>${bouncycastle.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -218,7 +243,7 @@
 
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
+					<version>3.6.1</version>
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
@@ -228,8 +253,14 @@
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.5.5</version>
+					<version>3.0.0</version>
 					<configuration>
 						<descriptorRefs>
 							<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -249,7 +280,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>2.4</version>
+					<version>3.0.1</version>
 					<executions>
 						<execution>
 							<id>attach-sources</id>
@@ -263,7 +294,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.10.3</version>
+					<version>2.10.4</version>
 					<configuration>
 						<quiet>true</quiet>
 					</configuration>
@@ -283,7 +314,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.18.1</version>
+					<version>2.19.1</version>
 					<executions>
 						<execution>
 							<goals>
@@ -297,7 +328,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.18.1</version>
+					<version>2.19.1</version>
 					<configuration>
 						<redirectTestOutputToFile>true</redirectTestOutputToFile>
 					</configuration>
@@ -305,7 +336,7 @@
 
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.6.1</version>
+					<version>3.0.0</version>
 					<configuration>
 						<filesets>
 							<fileset>
@@ -337,7 +368,7 @@
 				<plugin>
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
-					<version>1.6.3</version>
+					<version>1.6.8</version>
 					<extensions>true</extensions>
 					<configuration>
 						<serverId>ossrh</serverId>
@@ -349,7 +380,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.5.2</version>
+					<version>3.0-r1585899</version>
 					<configuration>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<useReleaseProfile>false</useReleaseProfile>
@@ -359,9 +390,9 @@
 				</plugin>
 
 				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>maven-jetty-plugin</artifactId>
-					<version>6.1.10</version>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>9.4.3.v20170317</version>
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
 						<connectors>
