@@ -1,4 +1,4 @@
 # parent
 
-Standard Maven parent pom
+A Maven parent pom with default configurations useful for various projects.
 
