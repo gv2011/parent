@@ -25,7 +25,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Copyright (C) 2016 Vinz (https://github.com/gv2011) Parent</name>
@@ -54,7 +54,7 @@
     <connection>scm:git:git://github.com/gv2011/parent.git</connection>
     <developerConnection>scm:git:git@github.com:gv2011/parent.git</developerConnection>
     <url>https://github.com/gv2011/parent</url>
-    <tag>parent-0.0.3</tag>
+    <tag>HEAD</tag>
   </scm>
 
 
@@ -368,7 +368,7 @@
           <artifactId>maven-gpg-plugin</artifactId>
           <version>1.6</version>
           <configuration>
-            <keyname>0xB9F0750E</keyname>
+            <keyname>0xC389DCA5</keyname>
           </configuration>
           <executions>
             <execution>
