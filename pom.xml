@@ -108,7 +108,7 @@
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
-    
+
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
@@ -220,6 +220,12 @@
         <artifactId>javax.servlet-api</artifactId>
         <version>4.0.0</version>
       </dependency>
+      
+      <dependency>
+        <groupId>com.j2html</groupId>
+        <artifactId>j2html</artifactId>
+        <version>1.2.0</version>
+      </dependency>
 
       <dependency>
         <groupId>org.bouncycastle</groupId>
@@ -235,6 +241,12 @@
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcmail-jdk15on</artifactId>
         <version>${bouncycastle.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>3.2.5</version>
       </dependency>
 
       <dependency>
