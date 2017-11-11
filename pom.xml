@@ -1,37 +1,36 @@
 <!--
   The MIT License (MIT)
 
-  Copyright (C) 2016-2017 Vinz (https://github.com/gv2011)
+  Copyright (c) 2016 - 2017, Vinz (https://github.com/gv2011)
 
-  Permission is ereby granted, free of charge, to any person obtaining a copy
+  Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
 
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Copyright (C) 2016 Vinz (https://github.com/gv2011) Parent</name>
+  <name>parent</name>
   <description>A Maven parent pom with default configurations useful for various projects.</description>
   <url>https://github.com/gv2011/parent</url>
-
 
   <licenses>
     <license>
@@ -40,15 +39,13 @@
     </license>
   </licenses>
 
-
   <developers>
     <developer>
       <id>gv2011</id>
-      <name>Copyright (C) 2016 Vinz (https://github.com/gv2011)</name>
+      <name>Vinz</name>
       <url>https://github.com/gv2011</url>
     </developer>
   </developers>
-
 
   <scm>
     <connection>scm:git:git://github.com/gv2011/parent.git</connection>
@@ -56,7 +53,6 @@
     <url>https://github.com/gv2011/parent</url>
     <tag>HEAD</tag>
   </scm>
-
 
   <distributionManagement>
     <snapshotRepository>
@@ -91,7 +87,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
     </dependency>
 
   </dependencies>
@@ -99,6 +94,19 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <!-- Nullness annotations -->
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>3.0.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -176,7 +184,7 @@
       </dependency>
 
       <dependency>
-        <groupId> javax.mail</groupId>
+        <groupId>javax.mail</groupId>
         <artifactId>javax.mail-api</artifactId>
         <version>1.6.0</version>
       </dependency>
@@ -211,6 +219,12 @@
         <artifactId>javax.servlet-api</artifactId>
         <version>4.0.0</version>
       </dependency>
+      
+      <dependency>
+        <groupId>com.j2html</groupId>
+        <artifactId>j2html</artifactId>
+        <version>1.2.0</version>
+      </dependency>
 
       <dependency>
         <groupId>org.bouncycastle</groupId>
@@ -226,6 +240,26 @@
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcmail-jdk15on</artifactId>
         <version>${bouncycastle.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>3.2.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-library</artifactId>
+        <version>1.3</version>
+        <scope>test</scope>
       </dependency>
 
     </dependencies>
@@ -345,119 +379,43 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>1.14</version>
-          <configuration>
-            <verbose>false</verbose>
-            <addSvnKeyWords>true</addSvnKeyWords>
-          </configuration>
-          <executions>
-            <execution>
-              <id>first</id>
-              <goals>
-                <goal>update-file-header</goal>
-              </goals>
-              <phase>process-sources</phase>
-              <configuration>
-                <licenseName>mit</licenseName>
-              </configuration>
-            </execution>
-          </executions>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>1.6</version>
-          <configuration>
-            <keyname>0xC389DCA5</keyname>
-          </configuration>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.8</version>
-          <extensions>true</extensions>
-          <configuration>
-            <serverId>ossrh</serverId>
-            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-          </configuration>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5.3</version>
-          <configuration>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-            <useReleaseProfile>false</useReleaseProfile>
-            <releaseProfiles>release</releaseProfiles>
-            <goals>deploy</goals>
-          </configuration>
         </plugin>
 
         <plugin>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
           <version>9.4.7.v20170914</version>
-          <configuration>
-            <scanIntervalSeconds>10</scanIntervalSeconds>
-            <connectors>
-              <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                <port>8080</port>
-                <maxIdleTime>60000</maxIdleTime>
-              </connector>
-            </connectors>
-          </configuration>
         </plugin>
+
       </plugins>
-
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>ossrh</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-          </plugin>
-
-        </plugins>
-
-      </build>
-    </profile>
-  </profiles>
 
 </project>
