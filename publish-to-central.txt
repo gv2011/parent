@@ -1,0 +1,32 @@
+Deploy to Maven Central:
+
+mvn gpg:sign-and-deploy-file \
+-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
+-DrepositoryId=ossrh \
+-DpomFile=target/parent-<version>.pom -Dfile=parent-<version>.pom
+
+
+User settings:
+
+<settings>
+  <servers>
+    <server>
+      <id>ossrh</id>
+      <username>***</username>
+      <password>***</password>
+    </server>
+  </servers>
+   <profiles>
+    <profile>
+      <id>ossrh</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <gpg.executable>gpg2</gpg.executable>
+        <gpg.passphrase>***</gpg.passphrase>
+        <gpg.keyname>***</gpg.keyname>
+      </properties>
+    </profile>
+   </profiles>
+</settings>
