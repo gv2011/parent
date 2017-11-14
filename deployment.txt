@@ -1,6 +1,6 @@
 Release:
 
-mvn release:prepare release:perform -Dmaven.deploy.skip=true
+mvn release:prepare release:perform -Dgoals=install
 
 
 Deploy to Maven Central:
