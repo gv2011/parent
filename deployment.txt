@@ -5,6 +5,8 @@ mvn release:prepare release:perform -Dgoals=install
 
 Deploy to Maven Central:
 
+Put parent-<version>.pom in working directory.
+
 mvn gpg:sign-and-deploy-file \
 -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
 -DrepositoryId=ossrh \
@@ -28,10 +30,12 @@ User settings:
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <gpg.executable>gpg2</gpg.executable>
-        <gpg.passphrase>***</gpg.passphrase>
+        <gpg.executable>gpg</gpg.executable>
+        <gpg.passphrase>***</gpg.passphrase> <!-- seems to be ignored -->
         <gpg.keyname>***</gpg.keyname>
       </properties>
     </profile>
    </profiles>
 </settings>
+
+Goto https://oss.sonatype.org/
