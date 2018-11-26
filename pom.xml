@@ -58,7 +58,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.release>10</java.release>
+    <java.release>11</java.release>
     <bouncycastle.version>1.60</bouncycastle.version>
     <slf4j.version>1.7.25</slf4j.version>
     <jetty.version>9.4.12.v20180830</jetty.version>
