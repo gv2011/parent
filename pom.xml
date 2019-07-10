@@ -19,11 +19,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
-  <version>0.4.1-SNAPSHOT</version>
+  <version>0.5.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Vinz Parent</name>
-  <description>A Maven parent pom with default configurations useful for various projects.</description>
+
+  <description>
+    A Maven parent pom with default configurations useful for various projects and a consistent set of
+    dependency versions.
+  </description>
+
   <url>https://github.com/gv2011/parent</url>
 
   <licenses>
