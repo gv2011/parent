@@ -491,7 +491,8 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <!-- <version>3.0.0-M1</version> Going back due to problems activating release profile.-->
+          <version>2.5.3</version>
         </plugin>
 
         <plugin>
