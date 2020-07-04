@@ -547,6 +547,7 @@
   </build>
 
   <profiles>
+  
     <profile>
       <id>IT</id>
       <build>
@@ -558,6 +559,7 @@
         </plugins>
       </build>
     </profile>
+    
     <profile>
       <id>toolchains</id>
       <build>
@@ -583,6 +585,7 @@
         </plugins>
       </build>
     </profile>
+    
   </profiles>
 
 </project>
