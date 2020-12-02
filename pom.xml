@@ -53,7 +53,7 @@
     <java.release>14</java.release>
     <bouncycastle.version>1.65</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <jetty.version>9.4.30.v20200611</jetty.version>
+    <jetty.version>9.4.35.v20201120</jetty.version>
     <acme4j.version>2.9</acme4j.version>
     <mail.version>1.6.5</mail.version>
   </properties>
