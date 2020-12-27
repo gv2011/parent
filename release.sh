@@ -2,7 +2,7 @@
 
 mvn release:prepare release:perform -Dgoals=install
 
-version=0.5.8
+version=0.5.9
 
 cp ~/.m2/repository/com/github/gv2011/parent/$version/parent-$version.pom ./target
 
