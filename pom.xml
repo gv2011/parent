@@ -41,7 +41,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.release>14</java.release>
+    <java.release>15</java.release>
     <bouncycastle.version>1.65</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
     <jetty.version>9.4.30.v20200611</jetty.version>
@@ -68,6 +68,18 @@
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>log4j-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>integration</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
 
@@ -115,6 +127,19 @@
             <artifactId>javax.mail</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.subethamail</groupId>
+        <artifactId>subethasmtp</artifactId>
+        <version>3.1.7</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail</artifactId>
+        <version>1.6.1</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
@@ -171,6 +196,12 @@
       </dependency>
 
       <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>2.10.8</version>
+      </dependency>
+
+      <dependency>
         <groupId>commons-daemon</groupId>
         <artifactId>commons-daemon</artifactId>
         <classifier>bin-windows</classifier>
@@ -180,9 +211,27 @@
       </dependency>
 
       <dependency>
+        <groupId>org.fusesource.jansi</groupId>
+        <artifactId>jansi</artifactId>
+        <version>2.1.1</version>
+      </dependency>
+
+      <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>1.4.200</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.2.18</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.22</version>
       </dependency>
 
       <dependency>
@@ -191,13 +240,18 @@
         <version>1.8</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.codehaus.janino</groupId>
+        <artifactId>janino</artifactId>
+        <version>3.1.2</version>
+      </dependency>
+
       <!-- Java Mail: https://eclipse-ee4j.github.io/javamail/#Download_JavaMail_Release -->
       <dependency>
         <!-- The JavaMail API definitions only, suitable for compiling against; -->
         <!-- use only with a Maven “provided” dependency scope -->
         <groupId>jakarta.mail</groupId>
         <artifactId>jakarta.mail-api</artifactId>
-        <scope>provided</scope>
         <version>${mail.version}</version>
       </dependency>
 
@@ -246,6 +300,13 @@
         <groupId>org.apache.derby</groupId>
         <artifactId>derby</artifactId>
         <version>10.15.2.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>2.5.1</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
@@ -309,7 +370,13 @@
       <dependency>
         <groupId>com.sun.activation</groupId>
         <artifactId>jakarta.activation</artifactId>
-        <version>2.0.0-RC3</version>
+        <version>2.0.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>2.1.3</version>
       </dependency>
 
       <dependency>
@@ -322,6 +389,13 @@
             <artifactId>hamcrest-core</artifactId>
           </exclusion>
         </exclusions>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>3.6.28</version>
         <scope>test</scope>
       </dependency>
 
