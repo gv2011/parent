@@ -42,7 +42,7 @@
     <java.release>15</java.release>
     <bouncycastle.version>1.65</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <jetty.version>9.4.30.v20200611</jetty.version>
+    <jetty.version>11.0.0</jetty.version>
     <acme4j.version>2.9</acme4j.version>
     <!-- <mail.version>1.6.5</mail.version> -->
     <mail.version>2.0.0-RC3</mail.version>
@@ -380,7 +380,7 @@
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.13</version>
+        <version>4.13.1</version>
         <exclusions>
           <exclusion>
             <groupId>org.hamcrest</groupId>
