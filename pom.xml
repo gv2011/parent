@@ -27,7 +27,7 @@
       </comments>
     </license>
   </licenses>
-  
+
   <inceptionYear>2016</inceptionYear>
 
   <developers>
@@ -54,6 +54,7 @@
     <jetty.version>11.0.0</jetty.version>
     <acme4j.version>2.11</acme4j.version>
     <mail.version>2.0.0</mail.version>
+    <poi.version>4.1.2</poi.version>
   </properties>
 
 
@@ -110,6 +111,12 @@
       </dependency>
 
       <dependency>
+        <groupId>com.ibm.icu</groupId>
+        <artifactId>icu4j</artifactId>
+        <version>68.2</version>
+      </dependency>
+
+      <dependency>
         <groupId>cglib</groupId>
         <artifactId>cglib</artifactId>
         <version>3.3.0</version>
@@ -137,7 +144,12 @@
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <version>4.1.2</version>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${poi.version}</version>
       </dependency>
 
       <dependency>
@@ -184,8 +196,8 @@
         <artifactId>jSerialComm</artifactId>
         <version>2.6.2</version>
       </dependency>
-      <dependency>
 
+      <dependency>
         <groupId>org.fusesource.jansi</groupId>
         <artifactId>jansi</artifactId>
         <version>2.1.1</version>
