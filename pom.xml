@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
-  <version>0.5.8</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
 
   <name>Vinz Parent</name>
 
   <description>
-    A Maven parent pom with default configurations useful for various projects and a consistent set of
-    dependency versions.
+    A Maven parent pom with default configurations useful for various projects.
+    Central place to manage default dependency versions.
   </description>
 
   <url>https://github.com/gv2011/parent</url>
@@ -18,8 +18,15 @@
     <license>
       <name>MIT License</name>
       <url>https://opensource.org/licenses/MIT</url>
+      <comments>
+        The license applies to the content of the source code repository identified within the 'scm'-section
+        of this file. The author(s) and copyright dates are given by this source code repository, the
+        'developers' section and the inceptionYear tag of this file.
+      </comments>
     </license>
   </licenses>
+
+  <inceptionYear>2016</inceptionYear>
 
   <developers>
     <developer>
@@ -33,19 +40,19 @@
     <connection>scm:git:git://github.com/gv2011/parent.git</connection>
     <developerConnection>scm:git:git@github.com:gv2011/parent.git</developerConnection>
     <url>https://github.com/gv2011/parent</url>
-    <tag>parent-0.5.8</tag>
+    <tag>parent-1.0</tag>
   </scm>
 
   <properties>
+    <java.release>11</java.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.release>15</java.release>
-    <bouncycastle.version>1.65</bouncycastle.version>
+    <bouncycastle.version>1.68</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
     <jetty.version>11.0.0</jetty.version>
-    <acme4j.version>2.9</acme4j.version>
-    <!-- <mail.version>1.6.5</mail.version> -->
-    <mail.version>2.0.0-RC3</mail.version>
+    <acme4j.version>2.11</acme4j.version>
+    <mail.version>2.0.0</mail.version>
+    <poi.version>4.1.2</poi.version>
   </properties>
 
 
@@ -63,6 +70,8 @@
   <dependencyManagement>
     <dependencies>
 
+      <!-- Logging -->
+
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
@@ -77,114 +86,86 @@
 
       <dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>integration</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>${slf4j.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.11.1</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>29.0-jre</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
         <artifactId>jul-to-slf4j</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
 
+
+      <!-- JSON -->
+
       <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>1.3.0-alpha5</version>
-        <scope>runtime</scope>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.0</version>
+      </dependency>
+
+
+      <!-- Utilities, Collections -->
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>30.1-jre</version>
       </dependency>
 
       <dependency>
-        <groupId>org.subethamail</groupId>
-        <artifactId>subethasmtp</artifactId>
-        <version>3.1.7</version>
+        <groupId>com.ibm.icu</groupId>
+        <artifactId>icu4j</artifactId>
+        <version>68.2</version>
       </dependency>
 
       <dependency>
-        <groupId>com.icegreen</groupId>
-        <artifactId>greenmail</artifactId>
-        <version>1.6.1</version>
-        <scope>test</scope>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>3.3.0</version>
       </dependency>
 
       <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-server</artifactId>
-        <version>${jetty.version}</version>
+        <groupId>jakarta.activation</groupId>
+        <artifactId>jakarta.activation-api</artifactId>
+        <version>2.0.0</version>
       </dependency>
 
       <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-servlet</artifactId>
-        <version>${jetty.version}</version>
-      </dependency>
-
-      <dependency>
+        <!-- Content Types -->
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
         <version>1.24.1</version>
       </dependency>
 
       <dependency>
-        <groupId>org.eclipse.jgit</groupId>
-        <artifactId>org.eclipse.jgit</artifactId>
-        <version>5.8.0.202006091008-r</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.maven.shared</groupId>
-        <artifactId>maven-invoker</artifactId>
-        <version>3.0.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven.shared</groupId>
-        <artifactId>maven-shared-utils</artifactId>
-        <version>3.2.1</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>4.5.12</version>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-csv</artifactId>
+        <version>1.8</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <version>4.1.2</version>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>2.1.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.j2html</groupId>
+        <artifactId>j2html</artifactId>
+        <version>1.4.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.googlecode.ez-vcard</groupId>
+        <artifactId>ez-vcard</artifactId>
+        <version>0.11.2</version>
       </dependency>
 
       <dependency>
@@ -204,8 +185,14 @@
         <artifactId>commons-daemon</artifactId>
         <classifier>bin-windows</classifier>
         <type>zip</type>
-        <version>1.2.2</version>
+        <version>1.2.3</version>
         <scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fazecast</groupId>
+        <artifactId>jSerialComm</artifactId>
+        <version>2.6.2</version>
       </dependency>
 
       <dependency>
@@ -213,6 +200,124 @@
         <artifactId>jansi</artifactId>
         <version>2.1.1</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.janino</groupId>
+        <artifactId>janino</artifactId>
+        <version>3.1.2</version>
+      </dependency>
+
+
+      <!-- Email -->
+
+      <dependency>
+        <!-- Java Mail: https://eclipse-ee4j.github.io/javamail/ -->
+        <!-- The JavaMail API definitions only, suitable for compiling against. -->
+        <groupId>jakarta.mail</groupId>
+        <artifactId>jakarta.mail-api</artifactId>
+        <version>${mail.version}</version>
+      </dependency>
+      
+      <dependency>
+        <!-- The JavaMail implementation with no protocol providers; use with protocol providers -->
+        <groupId>com.sun.mail</groupId>
+        <artifactId>mailapi</artifactId>
+        <version>${mail.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>smtp</artifactId>
+        <version>${mail.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>pop3</artifactId>
+        <version>${mail.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>imap</artifactId>
+        <version>${mail.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.subethamail</groupId>
+        <artifactId>subethasmtp</artifactId>
+        <version>3.1.7</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail</artifactId>
+        <version>1.6.1</version>
+        <scope>test</scope>
+      </dependency>
+
+
+      <!-- HTTP -->
+
+      <dependency>
+        <groupId>org.eclipse.jetty.toolchain</groupId>
+        <artifactId>jetty-jakarta-servlet-api</artifactId>
+        <version>5.0.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.5.13</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-server</artifactId>
+        <version>${jetty.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-servlet</artifactId>
+        <version>${jetty.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>10.0.0</version>
+      </dependency>
+
+      <dependency>
+        <!-- WebDAV client -->
+        <groupId>com.github.lookfirst</groupId>
+        <artifactId>sardine</artifactId>
+        <version>5.10</version>
+      </dependency>
+
+
+      <!-- Software Management -->
+
+      <dependency>
+        <groupId>org.eclipse.jgit</groupId>
+        <artifactId>org.eclipse.jgit</artifactId>
+        <version>5.10.0.202012080955-r</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.maven.shared</groupId>
+        <artifactId>maven-invoker</artifactId>
+        <version>3.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.shared</groupId>
+        <artifactId>maven-shared-utils</artifactId>
+        <version>3.3.3</version>
+      </dependency>
+
+
+      <!-- Databases -->
 
       <dependency>
         <groupId>com.h2database</groupId>
@@ -233,68 +338,6 @@
       </dependency>
 
       <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-csv</artifactId>
-        <version>1.8</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.codehaus.janino</groupId>
-        <artifactId>janino</artifactId>
-        <version>3.1.2</version>
-      </dependency>
-
-      <!-- Java Mail: https://eclipse-ee4j.github.io/javamail/#Download_JavaMail_Release -->
-      <dependency>
-        <!-- The JavaMail API definitions only, suitable for compiling against; -->
-        <!-- use only with a Maven “provided” dependency scope -->
-        <groupId>jakarta.mail</groupId>
-        <artifactId>jakarta.mail-api</artifactId>
-        <version>${mail.version}</version>
-      </dependency>
-
-      <dependency>
-        <!-- The JavaMail implementation with no protocol providers; use with protocol providers -->
-        <groupId>com.sun.mail</groupId>
-        <artifactId>mailapi</artifactId>
-        <scope>runtime</scope>
-        <version>${mail.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.sun.mail</groupId>
-        <artifactId>smtp</artifactId>
-        <scope>runtime</scope>
-        <version>${mail.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.sun.mail</groupId>
-        <artifactId>pop3</artifactId>
-        <scope>runtime</scope>
-        <version>${mail.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.sun.mail</groupId>
-        <artifactId>imap</artifactId>
-        <scope>runtime</scope>
-        <version>${mail.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.github.lookfirst</groupId>
-        <artifactId>sardine</artifactId>
-        <version>5.9</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.googlecode.ez-vcard</groupId>
-        <artifactId>ez-vcard</artifactId>
-        <version>0.10.6</version>
-      </dependency>
-
-      <dependency>
         <groupId>org.apache.derby</groupId>
         <artifactId>derby</artifactId>
         <version>10.15.2.0</version>
@@ -304,20 +347,10 @@
         <groupId>org.hsqldb</groupId>
         <artifactId>hsqldb</artifactId>
         <version>2.5.1</version>
-        <scope>test</scope>
       </dependency>
 
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>4.0.1</version>
-      </dependency>
 
-      <dependency>
-        <groupId>com.j2html</groupId>
-        <artifactId>j2html</artifactId>
-        <version>1.4.0</version>
-      </dependency>
+      <!-- Security -->
 
       <dependency>
         <groupId>org.bouncycastle</groupId>
@@ -346,36 +379,8 @@
         <version>${acme4j.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>com.fazecast</groupId>
-        <artifactId>jSerialComm</artifactId>
-        <version>2.6.2</version>
-      </dependency>
 
-      <dependency>
-        <groupId>cglib</groupId>
-        <artifactId>cglib</artifactId>
-        <version>3.3.0</version>
-      </dependency>
-
-      <!-- <dependency> -->
-      <!-- https://github.com/eclipse-ee4j/jaf -->
-      <!-- <groupId>com.sun.activation</groupId> -->
-      <!-- <artifactId>jakarta.activation-api</artifactId> -->
-      <!-- <version>2.0.0-RC6</version> -->
-      <!-- </dependency> -->
-
-      <dependency>
-        <groupId>com.sun.activation</groupId>
-        <artifactId>jakarta.activation</artifactId>
-        <version>2.0.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.dom4j</groupId>
-        <artifactId>dom4j</artifactId>
-        <version>2.1.3</version>
-      </dependency>
+      <!-- Test -->
 
       <dependency>
         <groupId>junit</groupId>
@@ -400,10 +405,9 @@
       <dependency>
         <groupId>org.junit.vintage</groupId>
         <artifactId>junit-vintage-engine</artifactId>
-        <version>5.6.2</version>
+        <version>5.7.0</version>
         <scope>test</scope>
       </dependency>
-
 
       <dependency>
         <groupId>org.hamcrest</groupId>
@@ -563,7 +567,7 @@
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
-          <version>4.0.0</version>
+          <version>4.0.3</version>
           <executions>
             <execution>
               <id>get-the-git-infos</id>
