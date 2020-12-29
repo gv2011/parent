@@ -1,8 +1,10 @@
 #!/bin/bash
 
-mvn release:prepare release:perform -Dgoals=install
+echo Release version?
 
-version=0.5.9
+read version
+
+mvn release:prepare release:perform -Dgoals=install -DreleaseVersion=$version
 
 cp ~/.m2/repository/com/github/gv2011/parent/$version/parent-$version.pom ./target
 
