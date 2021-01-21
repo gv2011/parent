@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
@@ -217,7 +219,7 @@
         <artifactId>jakarta.mail-api</artifactId>
         <version>${mail.version}</version>
       </dependency>
-      
+
       <dependency>
         <!-- The JavaMail implementation with no protocol providers; use with protocol providers -->
         <groupId>com.sun.mail</groupId>
@@ -355,6 +357,11 @@
       <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcpg-jdk15on</artifactId>
+        <version>${bouncycastle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
