@@ -210,16 +210,15 @@
 
       <!-- Email -->
 
-      <dependency>
-        <!-- Java Mail: https://eclipse-ee4j.github.io/javamail/ -->
-        <!-- The JavaMail API definitions only, suitable for compiling against. -->
-        <groupId>jakarta.mail</groupId>
-        <artifactId>jakarta.mail-api</artifactId>
-        <version>${mail.version}</version>
-      </dependency>
+<!--       <dependency> -->
+<!--         Java Mail: https://eclipse-ee4j.github.io/javamail/ -->
+<!--         The JavaMail API definitions only, suitable for compiling against. -->
+<!--         <groupId>jakarta.mail</groupId> -->
+<!--         <artifactId>jakarta.mail-api</artifactId> -->
+<!--         <version>${mail.version}</version> -->
+<!--       </dependency> -->
 
       <dependency>
-        <!-- The JavaMail implementation with no protocol providers; use with protocol providers -->
         <groupId>com.sun.mail</groupId>
         <artifactId>mailapi</artifactId>
         <version>${mail.version}</version>
