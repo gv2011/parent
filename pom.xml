@@ -49,7 +49,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <bouncycastle.version>1.68</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <jetty.version>11.0.0</jetty.version>
+    <jetty.version>11.0.1</jetty.version>
     <acme4j.version>2.11</acme4j.version>
     <mail.version>2.0.0</mail.version>
     <poi.version>4.1.2</poi.version>
