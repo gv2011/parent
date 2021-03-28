@@ -49,10 +49,10 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <bouncycastle.version>1.68</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <jetty.version>11.0.0</jetty.version>
+    <jetty.version>11.0.1</jetty.version>
     <acme4j.version>2.11</acme4j.version>
     <mail.version>2.0.0</mail.version>
-    <poi.version>4.1.2</poi.version>
+    <poi.version>5.0.0</poi.version>
   </properties>
 
 
@@ -96,7 +96,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.12.0</version>
+        <version>2.12.2</version>
       </dependency>
 
 
@@ -105,7 +105,7 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>30.1-jre</version>
+        <version>30.1.1-jre</version>
       </dependency>
 
       <dependency>
@@ -124,10 +124,12 @@
         <groupId>jakarta.activation</groupId>
         <artifactId>jakarta.activation-api</artifactId>
         <version>2.0.0</version>
+        <scope>provided</scope>
       </dependency>
 
       <dependency>
         <!-- Content Types -->
+        <!-- Stay with 1.24.1 because of missing Automatic-Module-Name in 1.25 and 2.0.0-ALPHA -->
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
         <version>1.24.1</version>
@@ -177,7 +179,7 @@
       <dependency>
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
-        <version>2.10.8</version>
+        <version>2.10.10</version>
       </dependency>
 
       <dependency>
@@ -185,7 +187,7 @@
         <artifactId>commons-daemon</artifactId>
         <classifier>bin-windows</classifier>
         <type>zip</type>
-        <version>1.2.3</version>
+        <version>1.2.4</version>
         <scope>runtime</scope>
       </dependency>
 
@@ -198,25 +200,17 @@
       <dependency>
         <groupId>org.fusesource.jansi</groupId>
         <artifactId>jansi</artifactId>
-        <version>2.1.1</version>
+        <version>2.3.2</version>
       </dependency>
 
       <dependency>
         <groupId>org.codehaus.janino</groupId>
         <artifactId>janino</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.3</version>
       </dependency>
 
 
       <!-- Email -->
-
-<!--       <dependency> -->
-<!--         Java Mail: https://eclipse-ee4j.github.io/javamail/ -->
-<!--         The JavaMail API definitions only, suitable for compiling against. -->
-<!--         <groupId>jakarta.mail</groupId> -->
-<!--         <artifactId>jakarta.mail-api</artifactId> -->
-<!--         <version>${mail.version}</version> -->
-<!--       </dependency> -->
 
       <dependency>
         <groupId>com.sun.mail</groupId>
@@ -251,7 +245,7 @@
       <dependency>
         <groupId>com.icegreen</groupId>
         <artifactId>greenmail</artifactId>
-        <version>1.6.1</version>
+        <version>1.6.2</version>
         <scope>test</scope>
       </dependency>
 
@@ -261,7 +255,7 @@
       <dependency>
         <groupId>org.eclipse.jetty.toolchain</groupId>
         <artifactId>jetty-jakarta-servlet-api</artifactId>
-        <version>5.0.1</version>
+        <version>5.0.2</version>
       </dependency>
 
       <dependency>
@@ -285,7 +279,7 @@
       <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-core</artifactId>
-        <version>10.0.0</version>
+        <version>10.0.4</version>
       </dependency>
 
       <dependency>
@@ -301,13 +295,13 @@
       <dependency>
         <groupId>org.eclipse.jgit</groupId>
         <artifactId>org.eclipse.jgit</artifactId>
-        <version>5.10.0.202012080955-r</version>
+        <version>5.11.0.202103091610-r</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.maven.shared</groupId>
         <artifactId>maven-invoker</artifactId>
-        <version>3.0.1</version>
+        <version>3.1.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.maven.shared</groupId>
@@ -327,13 +321,13 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.2.18</version>
+        <version>42.2.19</version>
       </dependency>
 
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.22</version>
+        <version>8.0.23</version>
       </dependency>
 
       <dependency>
@@ -402,14 +396,14 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>3.6.28</version>
+        <version>3.8.0</version>
         <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.junit.vintage</groupId>
         <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.0</version>
+        <version>5.7.1</version>
         <scope>test</scope>
       </dependency>
 
@@ -571,7 +565,7 @@
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
-          <version>4.0.3</version>
+          <version>4.0.4</version>
           <executions>
             <execution>
               <id>get-the-git-infos</id>
