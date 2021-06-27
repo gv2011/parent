@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.gv2011</groupId>
   <artifactId>parent</artifactId>
@@ -49,7 +51,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <bouncycastle.version>1.68</bouncycastle.version>
     <slf4j.version>2.0.0-alpha1</slf4j.version>
-    <jetty.version>11.0.1</jetty.version>
+    <jetty.version>11.0.3</jetty.version>
     <acme4j.version>2.11</acme4j.version>
     <mail.version>2.0.0</mail.version>
     <poi.version>5.0.0</poi.version>
@@ -129,7 +131,8 @@
 
       <dependency>
         <!-- Content Types -->
-        <!-- Stay with 1.24.1 because of missing Automatic-Module-Name in 1.25 and 2.0.0-ALPHA -->
+        <!-- Stay with 1.24.1 because of missing Automatic-Module-Name in 
+          1.25 and 2.0.0-ALPHA -->
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
         <version>1.24.1</version>
@@ -381,6 +384,13 @@
       <!-- Test -->
 
       <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.7.2</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.1</version>
@@ -428,6 +438,11 @@
           <configuration>
             <release>${java.release}</release>
             <encoding>UTF-8</encoding>
+            <!-- <parameters>true</parameters> works in Eclipse/m2e, but does not work in maven build, -->
+            <!-- see https://issues.apache.org/jira/browse/MCOMPILER-413 -->
+            <compilerArgs>
+              <arg>-parameters</arg><!-- Include method parameter names in class files -->
+            </compilerArgs>
           </configuration>
         </plugin>
 
@@ -558,7 +573,8 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <!-- <version>3.0.0-M1</version> Going back due to problems activating release profile. -->
+          <!-- <version>3.0.0-M1</version> Going back due to problems activating 
+            release profile. -->
           <version>2.5.3</version>
         </plugin>
 
