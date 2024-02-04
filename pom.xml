@@ -44,17 +44,15 @@
   </scm>
 
   <properties>
-    <java.release>11</java.release>
+    <java.release>18</java.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <bouncycastle.version>1.70</bouncycastle.version>
-    <!--    <slf4j.version>2.0.0-alpha1</slf4j.version>-->
-    <slf4j.version>2.0.1</slf4j.version>
-    <jetty.version>11.0.12</jetty.version>
-    <acme4j.version>2.15</acme4j.version>
-    <mail.version>2.1.0</mail.version>
-    <angus.version>1.0.0</angus.version>  
-    <poi.version>5.2.3</poi.version>
+    <bouncycastle.version>1.77</bouncycastle.version>
+    <slf4j.version>2.0.11</slf4j.version>
+    <jetty.version>11.0.20</jetty.version>
+    <mail.version>2.1.2</mail.version>
+    <angus.version>2.0.2</angus.version>  
+    <poi.version>5.2.5</poi.version>
   </properties>
 
 
@@ -98,7 +96,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.13.0</version>
+        <version>2.16.1</version>
       </dependency>
 
 
@@ -107,13 +105,13 @@
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>31.1-jre</version>
+        <version>33.0.0-jre</version>
       </dependency>
 
       <dependency>
         <groupId>com.ibm.icu</groupId>
         <artifactId>icu4j</artifactId>
-        <version>71.1</version>
+        <version>74.2</version>
       </dependency>
 
       <dependency>
@@ -125,26 +123,26 @@
       <dependency>
         <groupId>jakarta.activation</groupId>
         <artifactId>jakarta.activation-api</artifactId>
-        <version>2.1.0</version>
+        <version>2.1.2</version>
       </dependency>
       
       <dependency>
         <groupId>org.eclipse.angus</groupId>
         <artifactId>angus-activation</artifactId>
-        <version>1.0.0</version>
+        <version>2.0.1</version>
         <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
-        <version>2.5.0</version>
+        <version>2.9.1</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-csv</artifactId>
-        <version>1.9.0</version>
+        <version>1.10.0</version>
       </dependency>
 
       <dependency>
@@ -161,7 +159,8 @@
       <dependency>
         <groupId>org.dom4j</groupId>
         <artifactId>dom4j</artifactId>
-        <version>2.1.3</version>
+        <!-- CVE-2023-45960 has been marked "REJECT" -->
+        <version>2.1.4</version>
       </dependency>
 
       <dependency>
@@ -173,19 +172,19 @@
       <dependency>
         <groupId>com.googlecode.ez-vcard</groupId>
         <artifactId>ez-vcard</artifactId>
-        <version>0.11.3</version>
+        <version>0.12.1</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.21</version>
+        <version>1.25.0</version>
       </dependency>
 
       <dependency>
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
-        <version>2.12.0</version>
+        <version>2.12.6</version>
       </dependency>
 
       <dependency>
@@ -193,14 +192,14 @@
         <artifactId>commons-daemon</artifactId>
         <classifier>bin-windows</classifier>
         <type>zip</type>
-        <version>1.3.2</version>
+        <version>1.3.4</version>
         <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>com.fazecast</groupId>
         <artifactId>jSerialComm</artifactId>
-        <version>2.6.2</version>
+        <version>2.10.4</version>
       </dependency>
 
       <dependency>
@@ -212,9 +211,21 @@
       <dependency>
         <groupId>org.codehaus.janino</groupId>
         <artifactId>janino</artifactId>
-        <version>3.1.8</version>
+        <version>3.1.11</version>
       </dependency>
 
+      <dependency>
+        <groupId>com.drewnoakes</groupId>
+        <artifactId>metadata-extractor</artifactId>
+        <version>2.19.0</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-imaging</artifactId>
+        <version>1.0-alpha3</version>
+      </dependency>
+    
 
       <!-- Email -->
 
@@ -251,7 +262,7 @@
       <dependency>
         <groupId>com.icegreen</groupId>
         <artifactId>greenmail</artifactId>
-        <version>1.6.11</version>
+        <version>2.0.1</version>
         <scope>test</scope>
       </dependency>
 
@@ -267,7 +278,7 @@
       <dependency>
           <groupId>org.apache.httpcomponents.client5</groupId>
           <artifactId>httpclient5</artifactId>
-          <version>5.1.3</version>
+          <version>5.3.1</version>
       </dependency>
 
       <dependency>
@@ -285,14 +296,14 @@
       <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-core</artifactId>
-        <version>10.0.4</version>
+        <version>10.1.18</version>
       </dependency>
 
       <dependency>
         <!-- WebDAV client -->
         <groupId>com.github.lookfirst</groupId>
         <artifactId>sardine</artifactId>
-        <version>5.10</version>
+        <version>5.12</version>
       </dependency>
 
 
@@ -301,18 +312,18 @@
       <dependency>
         <groupId>org.eclipse.jgit</groupId>
         <artifactId>org.eclipse.jgit</artifactId>
-        <version>5.11.0.202103091610-r</version>
+        <version>6.8.0.202311291450-r</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.maven.shared</groupId>
         <artifactId>maven-invoker</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.maven.shared</groupId>
         <artifactId>maven-shared-utils</artifactId>
-        <version>3.3.3</version>
+        <version>3.4.2</version>
       </dependency>
 
 
@@ -321,31 +332,31 @@
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
-        <version>2.1.214</version>
+        <version>2.2.224</version>
       </dependency>
 
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.5.0</version>
+        <version>42.7.1</version>
       </dependency>
 
       <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.30</version>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <version>8.3.0</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.derby</groupId>
         <artifactId>derby</artifactId>
-        <version>10.15.2.0</version>
+        <version>10.17.1.0</version>
       </dependency>
 
       <dependency>
         <groupId>org.hsqldb</groupId>
         <artifactId>hsqldb</artifactId>
-        <version>2.7.0</version>
+        <version>2.7.2</version>
       </dependency>
 
 
@@ -353,34 +364,34 @@
 
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpg-jdk15on</artifactId>
+        <artifactId>bcpg-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-jdk15on</artifactId>
+        <artifactId>bcprov-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpkix-jdk15on</artifactId>
+        <artifactId>bcpkix-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcmail-jdk15on</artifactId>
+        <artifactId>bcmail-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.shredzone.acme4j</groupId>
         <artifactId>acme4j-client</artifactId>
-        <version>${acme4j.version}</version>
+        <version>3.1.1</version>
       </dependency>
       <dependency>
         <groupId>org.shredzone.acme4j</groupId>
         <artifactId>acme4j-utils</artifactId>
-        <version>${acme4j.version}</version>
+        <version>2.16</version>
       </dependency>
 
 
@@ -389,14 +400,14 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.2</version>
+        <version>5.10.1</version>
         <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.13.1</version>
+        <version>4.13.2</version>
         <exclusions>
           <exclusion>
             <groupId>org.hamcrest</groupId>
@@ -409,14 +420,14 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>3.8.0</version>
+        <version>5.10.0</version>
         <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.junit.vintage</groupId>
         <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
+        <version>5.10.1</version>
         <scope>test</scope>
       </dependency>
 
@@ -437,7 +448,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
+          <version>3.12.1</version>
           <configuration>
             <release>${java.release}</release>
             <encoding>UTF-8</encoding>
@@ -452,19 +463,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.3.0</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.1.2</version>
+          <version>3.6.1</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.6.0</version>
           <executions>
             <execution>
               <phase>package</phase>
@@ -478,7 +489,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.1</version>
+          <version>3.3.0</version>
           <executions>
             <execution>
               <id>attach-sources</id>
@@ -492,7 +503,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.6.3</version>
           <configuration>
             <quiet>true</quiet>
             <failOnError>false</failOnError>
@@ -511,7 +522,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0-M5</version>
+          <version>3.2.5</version>
           <configuration>
             <trimStackTrace>false</trimStackTrace>
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
@@ -521,7 +532,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.0.0-M5</version>
+          <version>3.2.5</version>
           <executions>
             <execution>
               <goals>
@@ -538,7 +549,7 @@
 
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.3.2</version>
           <configuration>
             <filesets>
               <fileset>
@@ -558,19 +569,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.1.1</version>
         </plugin>
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.6</version>
+          <version>3.1.0</version>
         </plugin>
 
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.8</version>
+          <version>1.6.13</version>
         </plugin>
 
         <plugin>
@@ -578,13 +589,14 @@
           <artifactId>maven-release-plugin</artifactId>
           <!-- <version>3.0.0-M1</version> Going back due to problems activating 
             release profile. -->
-          <version>2.5.3</version>
+<!--          <version>2.5.3</version>-->
+          <version>3.0.1</version>
         </plugin>
 
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
-          <version>4.0.4</version>
+          <version>4.9.10</version>
           <executions>
             <execution>
               <id>get-the-git-infos</id>
@@ -606,7 +618,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-toolchains-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.1.0</version>
           <executions>
             <execution>
               <goals>
