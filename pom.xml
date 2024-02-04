@@ -50,7 +50,7 @@
     <bouncycastle.version>1.70</bouncycastle.version>
     <!--    <slf4j.version>2.0.0-alpha1</slf4j.version>-->
     <slf4j.version>2.0.1</slf4j.version>
-    <jetty.version>11.0.12</jetty.version>
+    <jetty.version>11.0.14</jetty.version>
     <acme4j.version>2.15</acme4j.version>
     <mail.version>2.1.0</mail.version>
     <angus.version>1.0.0</angus.version>  
