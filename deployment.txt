@@ -38,4 +38,4 @@ User settings:
    </profiles>
 </settings>
 
-Goto https://oss.sonatype.org/
+Goto https://oss.sonatype.org/, close and release. 
