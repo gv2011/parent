@@ -44,7 +44,7 @@
   </scm>
 
   <properties>
-    <java.release>18</java.release>
+    <java.release>17</java.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <bouncycastle.version>1.77</bouncycastle.version>
