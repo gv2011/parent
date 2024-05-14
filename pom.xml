@@ -47,7 +47,7 @@
     <java.release>17</java.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <bouncycastle.version>1.77</bouncycastle.version>
+    <bouncycastle.version>1.78</bouncycastle.version>
     <slf4j.version>2.0.11</slf4j.version>
     <jetty.version>11.0.20</jetty.version>
     <mail.version>2.1.2</mail.version>
