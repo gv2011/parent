@@ -386,18 +386,34 @@
       
       
       <!-- Miscellaneous -->
-      
+
       <dependency>
-      <groupId>de.fraunhofer.iosb.io.moquette</groupId>
-      <artifactId>moquette-broker</artifactId>
-      <version>0.18.2</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-reload4j</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+        <groupId>de.fraunhofer.iosb.io.moquette</groupId>
+        <artifactId>moquette-broker</artifactId>
+        <version>0.18.2</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-reload4j</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.hierynomus</groupId>
+        <artifactId>sshj</artifactId>
+        <version>0.40.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
 
 
       <!-- Security -->
@@ -566,6 +582,7 @@
             <quiet>true</quiet>
             <failOnError>false</failOnError>
             <additionalJOption>-Xdoclint:none</additionalJOption>
+            <disableNoFonts>true</disableNoFonts>
           </configuration>
           <executions>
             <execution>
