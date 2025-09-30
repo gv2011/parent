@@ -136,7 +136,8 @@
       <dependency>
         <groupId>org.eclipse.angus</groupId>
         <artifactId>angus-activation</artifactId>
-        <version>${angus.version}</version>
+        <version>2.0.3</version>
+        <!-- 2.0.5 does not exist -->
         <scope>runtime</scope>
       </dependency>
 
