@@ -47,7 +47,7 @@
     <java.release>25</java.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <bouncycastle.version>1.82</bouncycastle.version>
+    <bouncycastle.version>1.84</bouncycastle.version>
     <slf4j.version>2.0.17</slf4j.version>
     <!-- Jetty 12 has major interface changes and there is no matching maven plugin. -->
     <jetty.version>11.0.26</jetty.version>
